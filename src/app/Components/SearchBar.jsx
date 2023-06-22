@@ -32,12 +32,12 @@ function SearchBar() {
     setIsMaxMenuOpen((prev) => !prev);
   };
   return (
-    <div className="bg-[#313131] min-h-[20vh] px-32 py-8">
+    <div className="bg-[#313131] min-h-[20vh] md:px-32 md:py-8 p-4">
       <p className="text-white font-bold text-sm">REWARDS EXPLORER</p>
-      <div className="grid grid-cols-8 grid-rows-1 gap-x-4 py-4">
-        <div className="col-span-3 row-span-1 relative shadow-slate-500">
+      <div className="md:grid md:grid-cols-8 md:grid-rows-1  md:gap-x-4 md:gap-y-0 flex flex-col gap-4 py-4">
+        <div className="md:col-span-3 row-span-1 relative shadow-slate-500">
           <input
-            className="w-full h-full rounded-full py-4 pl-12 pr-4"
+            className="w-full h-full rounded-full py-4 pl-12 pr-4 md:placeholder:text-sm placeholder:text-[12px]"
             type="text"
             placeholder="Search 63 Indian Brand Rewards"
           />
@@ -52,22 +52,25 @@ function SearchBar() {
         {/* inr menu  */}
         <div
           onClick={handlerINRMenu}
-          className="col-span-1 flex items-center gap-2 cursor-pointer relative"
+          className="col-span-1 flex md:flex-row flex-col md:items-center items-start gap-2 cursor-pointer relative"
         >
           <p
-            className={` ${isINRMenuOpen ? "text-yellow-400" : "text-white"} `}
+            className={` ${
+              isINRMenuOpen ? "text-yellow-400" : "text-white"
+            } flex items-center gap-2`}
           >
             INR
+            {isINRMenuOpen ? (
+              <FaAngleUp className="text-yellow-400" />
+            ) : (
+              <FaAngleDown className="text-yellow-400" />
+            )}
           </p>
-          {isINRMenuOpen ? (
-            <FaAngleUp className="text-yellow-400" />
-          ) : (
-            <FaAngleDown className="text-yellow-400" />
-          )}
+
           {isINRMenuOpen && (
-            <div className="absolute text-white top-14 w-max left-0 p-4 bg-[#171717] bg-opacity-60 shadow">
+            <div className="md:absolute relative text-white md:top-14 w-max left-0 p-4 bg-[#171717] md:bg-opacity-60 bg-opacity-100 shadow">
               <p className="mb-4">All Currencies</p>
-              <div className="grid grid-cols-5 grid-rows-8 gap-x-24 gap-y-4 text-sm">
+              <div className="grid grid-cols-5 grid-rows-8 md:gap-x-24 gap-x-12 gap-y-4 text-sm">
                 <p>INR</p>
                 <p>INR</p>
                 <p>INR</p>
@@ -87,25 +90,25 @@ function SearchBar() {
 
         <div
           onClick={handlerIndiaMenu}
-          className="col-span-1 flex items-center gap-2 cursor-pointer relative"
+          className="col-span-1 flex md:flex-row flex-col md:items-center items-start gap-2 cursor-pointer relative"
         >
           <p
             className={` ${
               isIndiaMenuOpen ? "text-yellow-400" : "text-white"
-            } `}
+            } flex items-center gap-2 `}
           >
             INDIA
+            {isIndiaMenuOpen ? (
+              <FaAngleUp className="text-yellow-400" />
+            ) : (
+              <FaAngleDown className="text-yellow-400" />
+            )}
           </p>
-          {isIndiaMenuOpen ? (
-            <FaAngleUp className="text-yellow-400" />
-          ) : (
-            <FaAngleDown className="text-yellow-400" />
-          )}
 
           {isIndiaMenuOpen && (
-            <div className="absolute text-white top-14 w-max -left-36 p-4 bg-[#171717] bg-opacity-60 shadow">
+            <div className="md:absolute relative text-white md:top-14 w-max left-0 p-4 bg-[#171717] md:bg-opacity-60 bg-opacity-100 shadow">
               <p className="mb-4">All Countries</p>
-              <div className="grid grid-cols-5 grid-rows-8 gap-x-24 gap-y-4 text-sm">
+              <div className="grid grid-cols-5 grid-rows-8 md:gap-x-24 gap-x-12 gap-y-4 text-sm">
                 <p>INR</p>
                 <p>INR</p>
                 <p>INR</p>
@@ -121,28 +124,30 @@ function SearchBar() {
             </div>
           )}
         </div>
-        <div></div>
+        <div className="md:block hidden"></div>
 
         {/* min menu  */}
         <div
           onClick={handlerMinMenu}
-          className="col-span-1 flex items-center gap-2 cursor-pointer relative"
+          className="col-span-1 flex md:flex-row flex-col md:items-center items-start gap-2 cursor-pointer relative"
         >
           <p
-            className={` ${isMinMenuOpen ? "text-yellow-400" : "text-white"} `}
+            className={` ${
+              isMinMenuOpen ? "text-yellow-400" : "text-white"
+            } flex items-center gap-2 `}
           >
             MIN
+            {isMinMenuOpen ? (
+              <FaAngleUp className="text-yellow-400" />
+            ) : (
+              <FaAngleDown className="text-yellow-400" />
+            )}
           </p>
-          {isMinMenuOpen ? (
-            <FaAngleUp className="text-yellow-400" />
-          ) : (
-            <FaAngleDown className="text-yellow-400" />
-          )}
 
           {isMinMenuOpen && (
-            <div className="absolute text-white top-14 w-max right-16 p-4 bg-[#171717] bg-opacity-60 shadow">
-              <p className="mb-4">MAX</p>
-              <div className="grid grid-cols-5 grid-rows-8 gap-x-24 gap-y-4 text-sm">
+            <div className="md:absolute relative text-white md:top-14 w-max left-0 p-4 bg-[#171717] md:bg-opacity-60 bg-opacity-100 shadow">
+              <p className="mb-4">MIN</p>
+              <div className="grid grid-cols-5 grid-rows-8 md:gap-x-24 gap-x-12 gap-y-4 text-sm">
                 <p>INR</p>
                 <p>INR</p>
                 <p>INR</p>
@@ -161,23 +166,25 @@ function SearchBar() {
         {/* max menu  */}
         <div
           onClick={handlerMaxMenu}
-          className="col-span-1 flex items-center gap-2 cursor-pointer relative"
+          className="col-span-1 flex md:flex-row flex-col md:items-center items-start gap-2 cursor-pointer relative"
         >
           <p
-            className={` ${isMaxMenuOpen ? "text-yellow-400" : "text-white"} `}
+            className={` ${
+              isMaxMenuOpen ? "text-yellow-400" : "text-white"
+            } flex items-center gap-2 `}
           >
             MAX
+            {isMaxMenuOpen ? (
+              <FaAngleUp className="text-yellow-400" />
+            ) : (
+              <FaAngleDown className="text-yellow-400" />
+            )}
           </p>
-          {isMaxMenuOpen ? (
-            <FaAngleUp className="text-yellow-400" />
-          ) : (
-            <FaAngleDown className="text-yellow-400" />
-          )}
 
           {isMaxMenuOpen && (
-            <div className="absolute text-white top-14 w-max right-16 p-4 bg-[#171717] bg-opacity-60 shadow">
+            <div className="md:absolute relative text-white md:top-14 w-max left-0 p-4 bg-[#171717] md:bg-opacity-60 bg-opacity-100 shadow">
               <p className="mb-4">MAX</p>
-              <div className="grid grid-cols-5 grid-rows-8 gap-x-24 gap-y-4 text-sm">
+              <div className="grid grid-cols-5 grid-rows-8 md:gap-x-24 gap-x-12 gap-y-4 text-sm">
                 <p>INR</p>
                 <p>INR</p>
                 <p>INR</p>

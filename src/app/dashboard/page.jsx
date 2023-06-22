@@ -7,7 +7,7 @@ export default function Dashboard() {
       <div>
         <SearchBar />
       </div>
-      <div className="grid grid-cols-5 gap-4 py-4 px-4">
+      <div className="grid md:grid-cols-5 grid-cols-1 gap-4 py-4 px-4">
         <Card
           image={circle}
           title={"AIRLINE GIFT"}
@@ -86,8 +86,8 @@ export default function Dashboard() {
 }
 export const Card = ({ image, title, priceFrom, priceTo, desc }) => {
   return (
-    <div className="CARD flex flex-col items-center gap-2 ">
-      <div className="md:h-[150px] md:w-[240px] rounded-md hover:backdrop-blur-md cursor-pointer border shadow hover:shadow-lg">
+    <div className="CARD flex flex-col md:items-center items-start gap-2 ">
+      <div className="md:h-[150px] h-[200px] w-full md:w-[240px] rounded-md hover:backdrop-blur-md cursor-pointer border shadow hover:shadow-lg">
         <Image
           className="h-full w-full object-contain"
           src={image}
@@ -98,7 +98,7 @@ export const Card = ({ image, title, priceFrom, priceTo, desc }) => {
       <p className="font-medium">
         {priceFrom}$ - {priceTo}$
       </p>
-      <p className="text-center font-thin text-sm">{desc}</p>
+      <p className="md:text-center font-thin text-sm">{desc}</p>
     </div>
   );
 };
